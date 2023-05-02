@@ -52,7 +52,7 @@ def calc_delay(time, duration):
 
 
 # /remindme
-@bot.slash_command(guild_ids=[1077368721556901988], name="remindme", description="Set a reminder for a certain time period with a message.")
+@bot.slash_command(name="remindme", description="Set a reminder for a certain time period with a message.")
 @option("when", description="When should I remind you? (A number)", min_value=1)
 @option("unit", description="Select days/hours/mins/seconds", choices=["seconds", "minutes", "hours","days"])
 @option("message", description="Enter the message")
@@ -77,7 +77,7 @@ async def remindme(
 
 
 # /remind @user
-@bot.slash_command(guild_ids=[1077368721556901988], name="remind", description="Set a reminder for other users.")
+@bot.slash_command(name="remind", description="Set a reminder for other users.")
 @option("user", discord.Member, description="Select the user you'd like to remind")
 @option("when", description="When should I remind this user? (A number)", min_value=1)
 @option("unit", description="Select days/hours/mins/seconds", choices=["seconds", "minutes", "hours","days"])
@@ -106,7 +106,7 @@ async def remind(
 
 
 # /newroom <name> <text_channel/voice_channel> 
-@bot.slash_command(guild_ids=[1077368721556901988], name="newroom", description="Create a private study (text/voice) channel.")
+@bot.slash_command(name="newroom", description="Create a private study (text/voice) channel.")
 @option("name", description="Enter the name of the study room")
 @option("channel", description="Select a channel", choices=["Text Channel", "Voice Channel"])
 async def newroom(
@@ -190,7 +190,7 @@ class TodoView(discord.ui.View):
 
 
 # /newtask <description>
-@bot.slash_command(guilds_ids=[1077368721556901988], name="newtask", description="Add a task to your todo list.")
+@bot.slash_command(name="newtask", description="Add a task to your todo list.")
 @option("description", description="Enter the description of the task")
 async def newtask(ctx: discord.ApplicationContext, description: str):
     global prev_message
@@ -217,7 +217,7 @@ async def newtask(ctx: discord.ApplicationContext, description: str):
 
 
 # /finishtask <task_num>
-@bot.slash_command(guilds_ids=[1077368721556901988], name="finishtask", description="Complete a task in your todo list.")
+@bot.slash_command(name="finishtask", description="Complete a task in your todo list.")
 @option("task_num", description="Select the task you completed")
 # @option("task_num", description="Select the task you completed", choices=task_choices())
 async def finishtask(ctx: discord.ApplicationContext, task_num: int):
@@ -296,7 +296,7 @@ class PollView(discord.ui.View):
 
 
 # /poll <question> <option1> <option2>
-@bot.slash_command(guild_ids=[1077368721556901988], name="poll", description="Create a poll.")
+@bot.slash_command(name="poll", description="Create a poll.")
 @option("question", description="What question do you want to ask")
 @option("option1", description="Enter the first option")
 @option("option2", description="Enter the second option")
@@ -361,7 +361,7 @@ class StudyView(discord.ui.View):
 
 
 # /study <name> 
-@bot.slash_command(guild_ids=[1077368721556901988], name="study", description="Start a study session.")
+@bot.slash_command(name="study", description="Start a study session.")
 @option("topic", description="What are you studying?")
 async def study(ctx: discord.ApplicationContext, topic: str):
     # Create new Study object, used to track the amount of time studied, and refresh/complete buttons
@@ -419,7 +419,7 @@ class FlashcardView(discord.ui.View):
 
 
 # /flashcard <question/term> <answer/definition>
-@bot.slash_command(guild_ids=[1077368721556901988], name="flashcard", description="Create a flashcard.")
+@bot.slash_command(name="flashcard", description="Create a flashcard.")
 @option("question", description="What is the term/question?")
 @option("answer", description="Enter the first answer/definition")
 async def flashcard(
@@ -439,7 +439,7 @@ async def flashcard(
 
 
 # /help
-@bot.slash_command(guild_ids=[1077368721556901988], name="help", description="Help for StudyBot commands")
+@bot.slash_command(name="help", description="Help for StudyBot commands")
 async def help(ctx: discord.ApplicationContext):
 
     embed = discord.Embed(title="StudyBot Help", description="Welcome to StudyBot! Below are a list of all of my commands and an example of how to use them!\nAll of my commands are slash commands, so type `/` to find them!", color=0xff0054)
